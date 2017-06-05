@@ -9,7 +9,7 @@ import {
   GridSection,
   TopBar,
   GridItem,
-  GridContent,
+  Modal,
   GridContentItem,
   Footer,
   GridOverlay
@@ -403,7 +403,7 @@ class Container extends Component {
           </Router>
 
         </FadeContainer>
-        <GridContent show={this.state.showModal} class="scroll-wrap">
+        <Modal show={this.state.showModal} class="scroll-wrap">
           <GridContentItem className="content__item">
             <h3>Modal Dialog</h3>
             <div>
@@ -432,7 +432,7 @@ class Container extends Component {
 
             </div>
           </GridContentItem>
-        </GridContent>
+        </Modal>
         <GridOverlay show={this.state.showModal} />
       </div>
     );

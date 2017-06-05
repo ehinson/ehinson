@@ -150,7 +150,7 @@ export const Footer = styled.footer`
     cursor: default;
 `;
 
-export const GridContent = styled.section`
+export const Modal = styled.section`
     position: fixed;
     background: #ffffff;
   	top: 50%;
