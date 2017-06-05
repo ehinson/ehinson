@@ -94,7 +94,7 @@ const FadeContainer = styled.div`
 const Button = styled.button`
     ${unstyleButton};
     position: fixed;
-    bottom: 40px;
+    bottom: 80px;
     left: 50%;
     z-index: 5000;
     display: ${props => (props.modify ? "none" : "block")};
