@@ -6,7 +6,7 @@ import {
   minMedia
 } from "../utils/style-utils";
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
   position: relative;
   margin: 0 auto;
   min-height: 560px;
@@ -27,9 +27,9 @@ const StyledBackgroundImage = styled.div`
   	top: 0;
   	left: 0;
   	display: block;
-  	min-width: 100%;
-  	min-height: 100%;
-    max-height: 100%;
+  	max-width: 100%;
+    height: auto;
+    min-height: 100%;
   }
   &:after{
     content: '';
