@@ -6,7 +6,7 @@ import {
   minMedia
 } from "../utils/style-utils";
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.div`
   position: relative;
   margin: 0 auto;
   min-height: 560px;
