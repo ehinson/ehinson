@@ -27,9 +27,12 @@ const StyledBackgroundImage = styled.div`
   	top: 0;
   	left: 0;
   	display: block;
-  	max-width: 100%;
-    height: auto;
-    min-height: 100%;
+  	min-width: 100%;
+    height: 100%;
+    ${minMedia.tablet`
+      max-width: 100%;
+      min-height: 100%;
+      `}
   }
   &:after{
     content: '';
