@@ -314,7 +314,7 @@ class Container extends Component {
       this.setState({
         noscroll: true
       });
-      this.disableScroll();
+      // this.disableScroll();
       this.setState({
         modify: false
       });

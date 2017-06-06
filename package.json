@@ -2,7 +2,7 @@
   "name": "ehinson",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ehinson.herokuapp.com",
+  "homepage": "https://ehinson.github.io/",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
     "normalize.css": "^7.0.0",
@@ -61,7 +61,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "predeploy": "npm run build",
-    "deploy": "git push heroku master"
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
