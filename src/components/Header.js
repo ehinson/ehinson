@@ -116,6 +116,7 @@ const Header = props => {
           {" "}
         </p>
       </Title>
+      {props.children}
     </StyledHeader>
   );
 };

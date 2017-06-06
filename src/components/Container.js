@@ -378,13 +378,14 @@ class Container extends Component {
 
             </span>
           </Navigation>
-          <Header noTrans={this.state.noTrans} modify={this.state.modify} />
-          <Button
-            modify={this.state.modify}
-            onClick={() => this.toggle("revealed")}
-          >
-            <FontAwesome name="angle-double-down" />
-          </Button>
+          <Header noTrans={this.state.noTrans} modify={this.state.modify}>
+            <Button
+              modify={this.state.modify}
+              onClick={() => this.toggle("revealed")}
+            >
+              <FontAwesome name="angle-double-down" />
+            </Button>
+          </Header>
 
           <Router>
             <Content noTrans={this.state.noTrans} modify={this.state.modify}>
