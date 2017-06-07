@@ -2,70 +2,17 @@ import React, { Component } from "react";
 import Header from "./Header";
 import styled from "styled-components";
 import FontAwesome from "react-fontawesome";
-import { unstyleButton, minMedia, maxMedia } from "../utils/style-utils";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import {
-  Grid as GridContainer,
-  GridSection,
-  TopBar,
-  GridItem,
-  Modal,
-  GridContentItem,
-  Footer,
-  GridOverlay
-} from "./Grid";
+import { TopBar, Modal, GridContentItem, Footer, GridOverlay } from "./Grid";
 import PortfolioContent from "../content/portfolio";
+import Home from "./Home";
+import About from "./About";
+import Navigation from "./Navigation";
+import Button from "./Button";
+import Portfolio from "./Portfolio";
+import Content from "./Content";
 
 let keys = [32, 37, 38, 39, 40];
-
-const Home = () => (
-  <div>
-    <h3>Home</h3>
-    <p>Text</p>
-  </div>
-);
-
-const About = () => (
-  <div>
-    <h3>About</h3>
-    <p>Text</p>
-  </div>
-);
-
-const Portfolio = props => {
-  console.log("Portfolio", PortfolioContent);
-  return (
-    <GridContainer id="theGrid">
-      <GridSection>
-        <TopBar>
-          Things I've Done
-        </TopBar>
-        {PortfolioContent.map((mappedItem, index) => (
-          <GridItem onClick={props.onClick}>
-            <img src={mappedItem.imageUrl} alt="mappedItem.imageUrl" />
-            <div className="overlay">
-              <div className="text">
-                <h2>
-                  {mappedItem.title}
-                </h2>
-                <a className="grid__item">
-                  {mappedItem.link}
-                </a>
-                <p>{mappedItem.shortDescription}</p>
-              </div>
-            </div>
-
-          </GridItem>
-        ))}
-
-        <Footer class="page-meta">
-          Footer
-        </Footer>
-      </GridSection>
-
-    </GridContainer>
-  );
-};
 
 const FadeContainer = styled.div`
   .background-image{
@@ -91,152 +38,6 @@ const FadeContainer = styled.div`
 
 `;
 
-const Button = styled.button`
-    ${unstyleButton};
-    position: fixed;
-    bottom: 80px;
-    left: 50%;
-    z-index: 5000;
-    display: ${props => (props.modify ? "none" : "block")};
-    margin-left: -0.5em;
-    padding: 0;
-    width: 1em;
-    height: 1em;
-    border: none;
-    cursor: pointer;
-    color: #ffffff;
-    &:before {
-    	position: absolute;
-    	bottom: 100%;
-    	left: -200%;
-    	padding: 0.8em;
-    	width: 600%;
-    	color: #ffffff;
-    	content: "Scroll Down";
-      text-transform: uppercase;
-      font-weight: 800;
-      font-family: "Open Sans", sans-serif;
-    	font-size: 0.6em;
-    	-webkit-backface-visibility: hidden;
-    	backface-visibility: hidden;
-    }
-    > span {
-      	position: relative;
-      	display: block;
-      	width: 100%;
-      	height: 100%;
-        &:before {
-        	position: absolute;
-        	top: 0;
-        	left: 100%;
-        	width: 100%;
-        	height: 100%;
-        	color: #fff;
-        	text-transform: none;
-        	font-weight: normal;
-        	font-style: normal;
-        	font-variant: normal;
-        	font-family: "FontAwesome";
-        	line-height: 1;
-        	speak: none;
-        	-webkit-font-smoothing: antialiased;
-        	-moz-osx-font-smoothing: grayscale;
-        }
-
-
-      }
-`;
-
-const Content = styled.article`
-    z-index: 1000;
-    position: relative;
-    padding: 0 0 3em;
-    font-size: 0.85em;
-     > div {
-       transition-property: ${props => !props.notrans && "transform, opacity"};
-       transition-duration: ${props => !props.notrans && "0.5s"};
-       opacity: ${props => (props.modify ? "1" : "0")};
-       transform: ${props => (props.modify ? "translateY(0)" : "translateY(350px)")};
-       &:not(.title){
-         margin: 0  auto;
-      	max-width: 900px;
-      	padding: 0 1.25em;
-        p {
-        	margin: 0 auto 1.5em auto;
-        }
-       }
-     }
-`;
-
-const Navigation = styled.nav`
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    text-transform: uppercase;
-    font-weight: 800;
-    font-size: 0.6em;
-    padding: 0 32px;
-    letter-spacing: 1px;
-    z-index: 10000;
-    button {
-    	display: inline-block;
-    	color: red;
-    	transform: translateY(20px);
-      a{
-        transform: translateY(0);
-      }
-    }
-    a{
-      display: inline-block;
-    	color: #fff;
-    	text-decoration: none;
-      transform: translateY(20px);
-    }
-    span.right {
-      float: right;
-      position: relative;
-    	width: auto;
-    	margin: 0 0 0 3em;
-      color: #ffffff;
-      a {
-      	display: block;
-        line-height: 1.61;
-        position: relative;
-        text-align: right;
-        & span:before{
-          margin: 0  5px;
-        }
-        &:before{
-          content: attr(data-link);
-          opacity: 0;
-          transform: scale3d(1,1,1);
-          transition-delay: 0.1s;
-          ${minMedia.tablet`
-            opacity: 0;
-            `}
-        }
-      }
-      ${maxMedia.tablet`
-        a{
-          line-height: 2 !important;
-          &:hover:before{
-            opacity: 1;
-            transform: scale3d(0.1,0.1,1);
-            transform-origin: 50% 50%;
-            transition: opacity 0.5s, transform 0.5s;
-            transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-          }
-        }
-      `}
-
-    }
-    .hidden-sm{
-      display: none;
-      ${minMedia.tablet`display: inline-block;`}
-    }
-`;
-
 class Container extends Component {
   constructor(props) {
     super(props);
@@ -246,7 +47,8 @@ class Container extends Component {
       isAnimating: false,
       isRevealed: false,
       modify: false,
-      showModal: false
+      showModal: false,
+      currentItem: {}
     };
   }
   componentDidMount() {
@@ -346,9 +148,11 @@ class Container extends Component {
   enableScroll = () => {
     window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
   };
-  handleModalToggle = () => {
+  handleModalToggle = mappedItem => {
+    console.log(mappedItem);
     let showModal = this.state && this.state.showModal;
     this.setState({
+      currentItem: mappedItem,
       showModal: this.state && !this.state.showModal
     });
   };
@@ -404,28 +208,22 @@ class Container extends Component {
           </Router>
 
         </FadeContainer>
-        <Modal show={this.state.showModal} class="scroll-wrap">
+        <Modal
+          show={this.state.showModal}
+          class="scroll-wrap"
+          data={this.state.currentItem}
+        >
           <GridContentItem className="content__item">
-            <h3>Modal Dialog</h3>
+            <h3>{this.state.currentItem.title}</h3>
             <div>
               <p>
                 <img
-                  src="https://unsplash.it/300/200/?random
-"
-                  alt="Random image"
+                  src={this.state.currentItem.imageUrl}
+                  alt={this.state.currentItem.title}
                 />
               </p>
               <p>
-
-                <strong>Read:</strong>
-                {" "}
-                Modal windows will probably tell you something important so don't forget to read what it says.
-                <strong>Look:</strong>
-                {" "}
-                modal windows enjoy a certain kind of attention; just look at it and appreciate its presence.
-                <strong>Close:</strong>
-                {" "}
-                click on the button below to close the modal.
+                {this.state.currentItem.longDescription}
               </p>
               <button onClick={this.handleModalToggle}>
                 <FontAwesome name="close" />

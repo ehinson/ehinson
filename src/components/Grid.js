@@ -155,7 +155,7 @@ export const Modal = styled.section`
     background: #ffffff;
   	top: 50%;
   	left: 50%;
-  	width: 68%;
+  	width: 70%;
     padding: 30px 55px;
   	max-width: 630px;
   	min-width: 320px;
@@ -192,6 +192,9 @@ export const Modal = styled.section`
       bottom: 0px;
       left: 0px;
     }
+    ${maxMedia.tablet`
+      width: 90%;
+      `}
 `;
 
 export const GridContentItem = styled.article`
